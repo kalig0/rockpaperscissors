@@ -4,48 +4,71 @@ function computerPlay() {
     return choices[choice];
 }
 
-function playRound(playerSelection, computerSelection) {
-    if (playerSelection == "rock") {
-        if (computerSelection == "Rock") {
-            return "It's a draw!";
-        }
-        else if (computerSelection == "Paper") {
-            return "You Lose! Paper beats Rock";
-        }
-        else {
-            return "You Win! Rock beats Scissors";
-        }
+let playerScore = 0;
+let computerScore = 0;
+
+function playRockRound(computerSelection) {
+    if (computerSelection == "Rock") {
+        return "It's a draw!";
     }
-    if (playerSelection == "paper") {
-        if (computerSelection == "Paper") {
-            return "It's a draw!";
-        }
-        else if (computerSelection == "Rock") {
-            return "You Win! Paper beats Rock";
-        }
-        else {
-            return "You Lose! Scissors beats Paper";
-        }
+    else if (computerSelection == "Paper") {
+        computerScore++;
+        return "You Lose! Paper beats Rock";
     }
-    if (playerSelection == "scissors") {
-        if (computerSelection == "Scissors") {
-            return "It's a draw!";
-        }
-        else if (computerSelection == "Paper") {
-            return "You Win! Scissors beats Paper";
-        }
-        else {
-            return "You Lose! Rock beats Scissors";
-        }
+    else {
+        playerScore++;
+        return "You Win! Rock beats Scissors";
     }
 }
 
-function game() {
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = (prompt("Rock, Paper, or Scissors?")).toLowerCase();
-        let computerSelection = computerPlay();
-        console.log(playRound(playerSelection, computerSelection));
+function playPaperRound(computerSelection) {
+    if (computerSelection == "Paper") {
+        return "It's a draw!";
+    }
+    else if (computerSelection == "Rock") {
+        playerScore++;
+        return "You Win! Paper beats Rock";
+    }
+    else {
+        computerScore++;
+        return "You Lose! Scissors beats Paper";
     }
 }
 
-game();
+function playScissorsRound(computerSelection) {
+    if (computerSelection == "Scissors") {
+        return "It's a draw!";
+    }
+    else if (computerSelection == "Paper") {
+        playerScore++;
+        return "You Win! Scissors beats Paper";
+    }
+    else {
+        computerScore++;
+        return "You Lose! Rock beats Scissors";
+    }
+}
+
+// const button1 = document.querySelector("#rock");
+// button1.addEventListener("click", () => {
+//     alert("rock");
+//     //var result = playRockRound(computerSelection);
+// });
+// //document.getElementById("results").innerHTML = result;
+
+
+// const button2 = document.querySelector("#paper");
+// button2.addEventListener("click", () => {
+//     alert("paper");
+//     //var result = playPaperRound(computerSelection);
+// });
+// //document.getElementById("results").innerHTML = result;
+
+
+// const button3 = document.querySelector("#scissors");
+// button3.addEventListener("click", () => {
+//     alert("scissors");
+//     //var result = playScissorsRound(computerSelection);
+// });
+// //document.getElementById("results").innerHTML = result;
+

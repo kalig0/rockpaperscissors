@@ -9,6 +9,66 @@
     <script src="javascript.js"></script>
 </head>
 <body>
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
+    <div id="results"></div>
+    <div id="score"></div>
+<script>
+    const button1 = document.querySelector("#rock");
+    button1.addEventListener("click", function(e) {
+        var computerSelection = computerPlay();
+        var result = playRockRound(computerSelection);
+        if (playerScore == 5) {
+        alert("You Win! Play Again?");
+        playerScore = 0;
+        computerScore = 0;
+        }
+        if (computerScore == 5) {
+            alert("You lose! Play Again?");
+            playerScore = 0;
+            computerScore = 0;
+        }        
+        document.getElementById("results").innerHTML = result;
+        document.getElementById("score").innerHTML = "Your Score: " + playerScore + "\nComputer Score: " + computerScore;
+    });
     
+    const button2 = document.querySelector("#paper");
+    button2.addEventListener("click", function(e) {
+        var computerSelection = computerPlay();
+        var result = playPaperRound(computerSelection);
+        if (playerScore == 5) {
+        alert("You Win! Play Again?");
+        playerScore = 0;
+        computerScore = 0;
+        }
+        if (computerScore == 5) {
+            alert("You lose! Play Again?");
+            playerScore = 0;
+            computerScore = 0;
+        }        
+        document.getElementById("results").innerHTML = result;
+        document.getElementById("score").innerHTML = "Your Score: " + playerScore + "\nComputer Score: " + computerScore;
+    });
+    
+    const button3 = document.querySelector("#scissors");
+    button3.addEventListener("click", function(e) {
+        var computerSelection = computerPlay();
+        var result = playScissorsRound(computerSelection);
+        if (playerScore == 5) {
+        alert("You Win! Play Again?");
+        playerScore = 0;
+        computerScore = 0;
+        }
+        if (computerScore == 5) {
+            alert("You lose! Play Again?");
+            playerScore = 0;
+            computerScore = 0;
+        }        
+        document.getElementById("results").innerHTML = result;
+        document.getElementById("score").innerHTML = "Your Score: " + playerScore + "\nComputer Score: " + computerScore;
+    });
+    
+</script>
 </body>
 </html>
